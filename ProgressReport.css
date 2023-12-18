@@ -1,0 +1,46 @@
+body{
+	background-color: grey;
+}
+
+table, th, tr
+{
+	border-style: solid;
+	width: 30%;
+}
+
+
+input {
+	position: relative;
+}
+
+#inputmiddle {
+	width: 20px;
+}
+
+#lbmid {
+	margin-right: 41px;
+}
+
+#lblastname {
+	margin-right: 2px
+}
+
+#lbslc {
+	margin-right: 42px
+}
+
+#lbgrade {
+	margin-right: 32px
+}
+
+#lbemail {
+	margin-right: 32px
+}
+
+#lbOsis {
+	margin-right: 35px
+}
+
+#btnsubmit {
+	width: 357px
+}
