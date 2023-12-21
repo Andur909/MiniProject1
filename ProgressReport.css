@@ -2,6 +2,12 @@ body{
 	background-color: grey;
 }
 
+table, th, tr
+{
+	border-style: solid;
+	width: 30%;
+}
+
 
 input {
 	position: relative;
@@ -38,26 +44,3 @@ input {
 #btnsubmit {
 	width: 357px
 }
-
-#calculation {
-	width: 252px;
-	height: 60px;
-}
-#btnseven, #btneigth, #btnnine, #btndivision, #btnfour, #btnfive, #btnsix, #btnmultiplication, #btnone, #btntwo, #btnthree, #btnminus, #btnsign, #btnzero, #btndot, #btnplus {
-	width: 60px;
-	height: 60px;
-	font-size: 20px;
-}
-
-
-#btnequal
-{
-	width: 252px;
-	height: 60px;
-}
-
-#btnmain
-{
-	width:120px;
-}
-
