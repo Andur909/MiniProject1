@@ -16,7 +16,7 @@ var num3;
 num3 = parseInt(num3);
 var equationtype
 var algebra = "What's x when 2x+52=100?";
-var geometry = "Whats The Hypotenuse of a right triangle when x=5 and y=6?"
+var geometry = "Whats The side of a right triangle when hypotenuse is 10 and the other side is 8?"
 
 //Progress Report
 var totalcourses = 0
@@ -45,7 +45,7 @@ function LoadPage()
 	
 	//Progress Report Page
 	if (page == "Report") {
-		alert(page);
+		document.getElementById("btnbackmain").addEventListener("click",MainPage);
 		document.getElementById("btnsubmit").addEventListener("click",submit);
 		document.getElementById("inputname").addEventListener("keypress",elementable);
 		document.getElementById("inputlastname").addEventListener("keypress",elementable)
@@ -102,7 +102,6 @@ function LoadPage()
 	
 	//Calculator
 	if (page == "Calculator") {
-		alert(page)
 		document.getElementById("btndot").addEventListener("click",dot);
 		document.getElementById("btnzero").addEventListener("click",zero);
 		document.getElementById("btnone").addEventListener("click",one);
@@ -122,18 +121,42 @@ function LoadPage()
 		document.getElementById("btndivision").addEventListener("click",division)
 		equationset();
 		document.getElementById("btncalculationsubmit").addEventListener("click",calculationcheck)
+		document.getElementById("btnbackmain").addEventListener("click",MainPage);
 	}
+	
+	//Schedule
 	if (page == "Schedule") {
-		document.getElementById("btnschedulesubmit").addEventListener("click",schedulerun)
+		document.getElementById("btnbackmain").addEventListener("click",MainPage);
+		document.getElementById("btnschedulesubmit").addEventListener("click",schedulerun);
+		
+		document.getElementById("txtclass1").focus();
+		document.getElementById("txtclass2").disabled=true;
+		document.getElementById("txtclass3").disabled=true;
+		document.getElementById("txtclass4").disabled=true;
+		document.getElementById("txtclass5").disabled=true;
+		document.getElementById("txtclass6").disabled=true;
+		document.getElementById("txtclass7").disabled=true;
+		document.getElementById("txtclass8").disabled=true;
+		document.getElementById("btnschedulesubmit").disabled=true;
+		
+		document.getElementById("txtclass1").addEventListener("keypress",scheduleunlock)
+		document.getElementById("txtclass2").addEventListener("keypress",scheduleunlock)
+		document.getElementById("txtclass3").addEventListener("keypress",scheduleunlock)
+		document.getElementById("txtclass4").addEventListener("keypress",scheduleunlock)
+		document.getElementById("txtclass5").addEventListener("keypress",scheduleunlock)
+		document.getElementById("txtclass6").addEventListener("keypress",scheduleunlock)
+		document.getElementById("txtclass7").addEventListener("keypress",scheduleunlock)
+		document.getElementById("txtclass8").addEventListener("keypress",scheduleunlock)
 	}
 	
 	//Main
-	if (page == "Main Page")
+	if (page == "Main")
 	{
 		document.getElementById("btnLogIn").addEventListener("click",LogInPage);
 		document.getElementById("btnReport").addEventListener("click",ReportPage);
 		document.getElementById("btnCalculator").addEventListener("click",CalculatorPage);
 		document.getElementById("btnSchedule").addEventListener("click",SchedulePage);
+	}
 }
 
 //Main
@@ -142,6 +165,25 @@ function LogInPage()
 	window.location.href = "LogInPage.html";
 }
 
+function ReportPage()
+{
+	window.location.href = "ProgressReport.html";
+}
+
+function CalculatorPage()
+{
+	window.location.href = "calculator.html";
+}
+
+function SchedulePage()
+{
+	window.location.href = "schedule.html";
+}
+
+function MainPage()
+{
+	window.location.href = "Main.html";
+}
 
 //LogIn/Sign In
 function LogInPress()
@@ -156,8 +198,6 @@ function LogIn()
 {
 	UserName = localStorage.getItem("username");
 	PassWord = localStorage.getItem("password");
-	alert(UserName);
-	alert(PassWord);
 	if (document.getElementById("inloginuser").value == UserName && document.getElementById("inloginpassword").value == PassWord) 
 	{
 		window.location.href = "Main.html";
@@ -173,8 +213,6 @@ function SignUp()
 	{
 		UserName = document.getElementById("inloginuser").value;
 		PassWord = document.getElementById("inloginpassword").value;
-		alert(UserName);
-		alert(PassWord);
 		localStorage.setItem("username", UserName);
 		localStorage.setItem("password", PassWord);
 		window.location.href = "Main.html";
@@ -743,6 +781,35 @@ function calculationcheck()
 }
 
 //Schedule
+function scheduleunlock()
+{
+	if (document.getElementById("txtclass1").value != "") {
+		document.getElementById("txtclass2").disabled=false;
+	}
+	if (document.getElementById("txtclass2").value != "") {
+		document.getElementById("txtclass3").disabled=false;
+	}
+	if (document.getElementById("txtclass3").value != "") {
+		document.getElementById("txtclass4").disabled=false;
+	}
+	if (document.getElementById("txtclass4").value != "") {
+		document.getElementById("txtclass5").disabled=false;
+	}
+	if (document.getElementById("txtclass5").value != "") {
+		document.getElementById("txtclass6").disabled=false;
+	}
+	if (document.getElementById("txtclass6").value != "") {
+		document.getElementById("txtclass7").disabled=false;
+	}
+	if (document.getElementById("txtclass7").value != "") {
+		document.getElementById("txtclass8").disabled=false;
+	}
+	if (document.getElementById("txtclass8").value != "") {
+		document.getElementById("btnschedulesubmit").disabled=false;
+	}
+}
+
+
 function schedulerun()
 {
 	document.getElementById("lbltableclass1").innerHTML = document.getElementById("txtclass1").value;

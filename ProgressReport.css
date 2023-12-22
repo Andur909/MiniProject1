@@ -61,3 +61,12 @@ input {
 	width:120px;
 }
 
+#tbSchedule
+{
+	border: 1px solid black;
+}
+
+#tbschedulemain, #tbcalcmain
+{
+	width: 30%;
+}

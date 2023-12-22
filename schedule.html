@@ -1,33 +1,35 @@
 <html>
 	<head>
 		<script src="progressreport.js"></script>
+		<link rel="stylesheet" type="text/css" href="ProgressReport.css" media="screen"></link>
+		<title>Schedule Maker</title>
 	</head>
 	<body>
 		<h1 id="Header1">Schedule</h1>
-		<table>
+		<table id="tbschedulemain">
 			<th>
 				<td>
 					<h3>Give me your schedule</h3>
-					<label id="lblclass1">First Class</label>
+					<label id="lblclass1">1st Class</label>
 					<input type="text" id="txtclass1"></input><br>
-					<label id="lblclass2">Second Class</label>
+					<label id="lblclass2">2nd Class</label>
 					<input type="text" id="txtclass2"></input><br>
-					<label id="lblclass3">Third Class</label>
+					<label id="lblclass3">3rd Class</label>
 					<input type="text" id="txtclass3"></input><br>
-					<label id="lblclass4">Fourth Class</label>
+					<label id="lblclass4">4th Class</label>
 					<input type="text" id="txtclass4"></input><br>
-					<label id="lblclass5">Fith Class</label>
+					<label id="lblclass5">5th Class</label>
 					<input type="text" id="txtclass5"></input><br>
-					<label id="lblclass6">Sixth Class</label>
+					<label id="lblclass6">6th Class</label>
 					<input type="text" id="txtclass6"></input><br>
-					<label id="lblclass7">Seventh Class</label>
+					<label id="lblclass7">7th Class</label>
 					<input type="text" id="txtclass7"></input><br>
-					<label id="lblclass8">Eight Class</label>
+					<label id="lblclass8">8th Class</label>
 					<input type="text" id="txtclass8"></input><br>
-					<button type="button" id="btnschedulesubmit">Submit</button>
+					<button type="button" id="btnschedulesubmit">Submit</button><br><br>
 				</td>
 				<td>
-					<table>
+					<table id="tbSchedule">
 						<tr>
 							<th>Period</th>
 							<th>Time</th>
@@ -77,6 +79,6 @@
 				</td>
 			</th>
 		</table>
-		<a href="Main.html" target="_self">Main</a>
+		<button type="button" id="btnbackmain">Main</button>
 	</body>
 </html>
