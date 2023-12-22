@@ -1,5 +1,24 @@
-window.addEventListener("load",addListeners);
-window.addEventListener("load",initelements);
+window.addEventListener("load",LoadPage);
+var page
+
+//LogIn
+var UserName;
+var PassWord;
+
+//Calculator
+var total = 0;
+var label = "";
+var num1 = "0";
+var num2 = "0";
+var operation = "";
+var sign = "+";
+var num3;
+num3 = parseInt(num3);
+var equationtype
+var algebra = "What's x when 2x+52=100?";
+var geometry = "Whats The Hypotenuse of a right triangle when x=5 and y=6?"
+
+//Progress Report
 var totalcourses = 0
 var totalscore = 0
 var overall = 0
@@ -8,57 +27,161 @@ var letter
 var num1
 var slc
 var grade
-function addListeners()
+
+
+function LoadPage()
 {
-	//LogIn Page
-	document.getElementById("btnlogin").disabled=true;
-	document.getElementById("inloginuser").addEventListener("click" LogInPress);
-	document.getElementById("inloginpassword").addEventListener("click" LogInPress);
-	document.getElementById("btnlogin").addEventListener("click", LogIn);
+	page = document.getElementById("Header1").innerHTML;
 	
-	document.getElementById("btnsubmit").addEventListener("click",submit);
-	document.getElementById("inputname").addEventListener("keypress",elementable);
-	document.getElementById("inputlastname").addEventListener("keypress",elementable)
-	document.getElementById("cmbslc").addEventListener("click",switchslc)
-	document.getElementById("cmbgrade").addEventListener("click",switchgrade)
-	document.getElementById("inputemail").addEventListener("keypress",elementable)
-	document.getElementById("inputosis").addEventListener("keypress",elementable)
+	//LogIn Page
+	if (page == "LOG IN") {
+		document.getElementById("btnlogin").disabled=true;
+		document.getElementById("btnsignup").disabled=true;
+		document.getElementById("inloginuser").addEventListener("keypress", LogInPress);
+		document.getElementById("inloginpassword").addEventListener("keypress", LogInPress);
+		document.getElementById("btnlogin").addEventListener("click", LogIn);
+		document.getElementById("btnsignup").addEventListener("click", SignUp);
+	}
 	
 	//Progress Report Page
-	document.getElementById("courseone").addEventListener("keypress",elementable)
-	document.getElementById("coursetwo").addEventListener("keypress",elementable)
-	document.getElementById("coursethree").addEventListener("keypress",elementable)
-	document.getElementById("coursefour").addEventListener("keypress",elementable)
-	document.getElementById("coursefive").addEventListener("keypress",elementable)
-	document.getElementById("coursesix").addEventListener("keypress",elementable)
-	document.getElementById("courseseven").addEventListener("keypress",elementable)
-	document.getElementById("courseeight").addEventListener("keypress",elementable)
+	if (page == "Report") {
+		alert(page);
+		document.getElementById("btnsubmit").addEventListener("click",submit);
+		document.getElementById("inputname").addEventListener("keypress",elementable);
+		document.getElementById("inputlastname").addEventListener("keypress",elementable)
+		document.getElementById("cmbslc").addEventListener("click",switchslc)
+		document.getElementById("cmbgrade").addEventListener("click",switchgrade)
+		document.getElementById("inputemail").addEventListener("keypress",elementable)
+		document.getElementById("inputosis").addEventListener("keypress",elementable)
 	
-	document.getElementById("gradeone").addEventListener("keypress",elementable)
-	document.getElementById("gradetwo").addEventListener("keypress",elementable)
-	document.getElementById("gradethree").addEventListener("keypress",elementable)
-	document.getElementById("gradefour").addEventListener("keypress",elementable)
-	document.getElementById("gradefive").addEventListener("keypress",elementable)
-	document.getElementById("gradesix").addEventListener("keypress",elementable)
-	document.getElementById("gradeseven").addEventListener("keypress",elementable)
-	document.getElementById("gradeeight").addEventListener("keypress",elementable)
+		document.getElementById("courseone").addEventListener("keypress",elementable)
+		document.getElementById("coursetwo").addEventListener("keypress",elementable)
+		document.getElementById("coursethree").addEventListener("keypress",elementable)
+		document.getElementById("coursefour").addEventListener("keypress",elementable)
+		document.getElementById("coursefive").addEventListener("keypress",elementable)
+		document.getElementById("coursesix").addEventListener("keypress",elementable)
+		document.getElementById("courseseven").addEventListener("keypress",elementable)
+		document.getElementById("courseeight").addEventListener("keypress",elementable)
 	
+		document.getElementById("gradeone").addEventListener("keypress",elementable)
+		document.getElementById("gradetwo").addEventListener("keypress",elementable)
+		document.getElementById("gradethree").addEventListener("keypress",elementable)
+		document.getElementById("gradefour").addEventListener("keypress",elementable)
+		document.getElementById("gradefive").addEventListener("keypress",elementable)
+		document.getElementById("gradesix").addEventListener("keypress",elementable)
+		document.getElementById("gradeseven").addEventListener("keypress",elementable)
+		document.getElementById("gradeeight").addEventListener("keypress",elementable)
+		
+		document.getElementById("inputmiddle").disabled=true;
+		document.getElementById("inputlastname").disabled=true;
+		document.getElementById("cmbslc").disabled=true;
+		document.getElementById("cmbgrade").disabled=true;
+		document.getElementById("inputemail").disabled=true;
+		document.getElementById("btnsubmit").disabled=true;
+		document.getElementById("inputosis").disabled=true;
+	
+		document.getElementById("courseone").disabled=true;
+		document.getElementById("coursetwo").disabled=true;
+		document.getElementById("coursethree").disabled=true;
+		document.getElementById("coursefour").disabled=true;
+		document.getElementById("coursefive").disabled=true;
+		document.getElementById("coursesix").disabled=true;
+		document.getElementById("courseseven").disabled=true;
+		document.getElementById("courseeight").disabled=true;
+	
+		document.getElementById("gradeone").disabled=true;
+		document.getElementById("gradetwo").disabled=true;
+		document.getElementById("gradethree").disabled=true;
+		document.getElementById("gradefour").disabled=true;
+		document.getElementById("gradefive").disabled=true;
+		document.getElementById("gradesix").disabled=true;
+		document.getElementById("gradeseven").disabled=true;
+		document.getElementById("gradeeight").disabled=true;
+		
+	}
+	
+	//Calculator
+	if (page == "Calculator") {
+		alert(page)
+		document.getElementById("btndot").addEventListener("click",dot);
+		document.getElementById("btnzero").addEventListener("click",zero);
+		document.getElementById("btnone").addEventListener("click",one);
+		document.getElementById("btntwo").addEventListener("click",two);
+		document.getElementById("btnthree").addEventListener("click",three);
+		document.getElementById("btnfour").addEventListener("click",four);
+		document.getElementById("btnfive").addEventListener("click",five);
+		document.getElementById("btnsix").addEventListener("click",six);
+		document.getElementById("btnseven").addEventListener("click",seven);
+		document.getElementById("btneigth").addEventListener("click",eight);
+		document.getElementById("btnnine").addEventListener("click",nine);
+		document.getElementById("btnplus").addEventListener("click",plus);
+		document.getElementById("btnminus").addEventListener("click",minus);
+		document.getElementById("btnmultiplication").addEventListener("click",multiplication);
+		document.getElementById("btnsign").addEventListener("click",signchanger);
+		document.getElementById("btnequal").addEventListener("click",equal);
+		document.getElementById("btndivision").addEventListener("click",division)
+		equationset();
+		document.getElementById("btncalculationsubmit").addEventListener("click",calculationcheck)
+	}
+	if (page == "Schedule") {
+		document.getElementById("btnschedulesubmit").addEventListener("click",schedulerun)
+	}
+	
+	//Main
+	if (page == "Main Page")
+	{
+		document.getElementById("btnLogIn").addEventListener("click",LogInPage);
+		document.getElementById("btnReport").addEventListener("click",ReportPage);
+		document.getElementById("btnCalculator").addEventListener("click",CalculatorPage);
+		document.getElementById("btnSchedule").addEventListener("click",SchedulePage);
 }
 
+//Main
+function LogInPage()
+{
+	window.location.href = "LogInPage.html";
+}
+
+
+//LogIn/Sign In
 function LogInPress()
 {
 	if (document.getElementById("inloginuser").value != "" && document.getElementById("inloginpassword").value != "")
 	{
 		document.getElementById("btnlogin").disabled=false;
+		document.getElementById("btnsignup").disabled=false;
 	}
 }
 function LogIn()
 {
-	alert("fff")
+	UserName = localStorage.getItem("username");
+	PassWord = localStorage.getItem("password");
+	alert(UserName);
+	alert(PassWord);
+	if (document.getElementById("inloginuser").value == UserName && document.getElementById("inloginpassword").value == PassWord) 
+	{
+		window.location.href = "Main.html";
+	} else {
+		alert("UserName or Password is Incorrect");
+	}
 	
-	window.location.href = "Main.html"
 }
 
+function SignUp()
+{
+	if (document.getElementById("inloginpassword").value != "" && document.getElementById("inloginuser").value != "")
+	{
+		UserName = document.getElementById("inloginuser").value;
+		PassWord = document.getElementById("inloginpassword").value;
+		alert(UserName);
+		alert(PassWord);
+		localStorage.setItem("username", UserName);
+		localStorage.setItem("password", PassWord);
+		window.location.href = "Main.html";
+	}
+}
+
+//Progress Report
 function switchslc()
 {
 	slc = document.getElementById("cmbslc").selectedIndex;
@@ -133,35 +256,6 @@ function switchgrade()
 	}
 }
 
-function initelements()
-{
-	document.getElementById("inputname").focus();
-	document.getElementById("inputmiddle").disabled=true;
-	document.getElementById("inputlastname").disabled=true;
-	document.getElementById("cmbslc").disabled=true;
-	document.getElementById("cmbgrade").disabled=true;
-	document.getElementById("inputemail").disabled=true;
-	document.getElementById("btnsubmit").disabled=true;
-	document.getElementById("inputosis").disabled=true;
-	
-	document.getElementById("courseone").disabled=true;
-	document.getElementById("coursetwo").disabled=true;
-	document.getElementById("coursethree").disabled=true;
-	document.getElementById("coursefour").disabled=true;
-	document.getElementById("coursefive").disabled=true;
-	document.getElementById("coursesix").disabled=true;
-	document.getElementById("courseseven").disabled=true;
-	document.getElementById("courseeight").disabled=true;
-	
-	document.getElementById("gradeone").disabled=true;
-	document.getElementById("gradetwo").disabled=true;
-	document.getElementById("gradethree").disabled=true;
-	document.getElementById("gradefour").disabled=true;
-	document.getElementById("gradefive").disabled=true;
-	document.getElementById("gradesix").disabled=true;
-	document.getElementById("gradeseven").disabled=true;
-	document.getElementById("gradeeight").disabled=true;
-}
 
 function elementable()
 {
@@ -374,4 +468,289 @@ function submit()
 	document.getElementById("Overall").innerHTML = String(overall);
 	document.getElementById("Gpa").innerHTML = String(gpa)
 	document.getElementById("Letter").innerHTML = letter;
+}
+
+//Calculator 
+function dot()
+{
+	if (label === "") {
+		label = "0";
+	}
+	label = label + "."
+	document.getElementById("calculation").value = label;
+	document.getElementById("btndot").disabled = true;
+	alert("ddd")
+}
+
+function zero()
+{
+	label = label + "0"
+	document.getElementById("calculation").value = label;
+}
+
+function one()
+{
+	label = label + "1"
+	document.getElementById("calculation").value = label;
+}
+
+function two()
+{
+	label = label + "2"
+	document.getElementById("calculation").value = label;
+}
+
+function three()
+{
+	label = label + "3"
+	document.getElementById("calculation").value = label;
+}
+
+function four()
+{
+	label = label + "4"
+	document.getElementById("calculation").value = label;
+}
+
+function five()
+{
+	label = label + "5"
+	document.getElementById("calculation").value = label;
+}
+
+function six()
+{
+	label = label + "6"
+	document.getElementById("calculation").value = label;
+}
+
+function seven()
+{
+	label = label + "7"
+	document.getElementById("calculation").value = label;
+}
+
+function eight()
+{
+	label = label + "8"
+	document.getElementById("calculation").value = label;
+}
+
+function nine()
+{
+	label = label + "9"
+	document.getElementById("calculation").value = label;
+}
+
+function equal()
+{
+	if (label === "")
+	{
+		label = "0"
+	}
+	if (operation != "")
+	{
+		num2 = label;
+	}
+	operations()
+}
+
+function signchanger()
+{
+	if (sign === "+")
+	{
+		label = parseInt(label)
+		num3 = label * 2
+		label = label - num3
+		label =  String(label)
+		sign = "-"
+		document.getElementById("calculation").value = label;
+	} else if (sign === "-")
+	{
+		label = parseInt(label)
+		num3 = label * 2
+		label = (label - num3)
+		label =  String(label)
+		sign = "-"
+		document.getElementById("calculation").value = label;
+
+	}
+}
+
+function plus()
+{
+	if (label === "")
+	{
+		label = ""
+		return
+	}
+	if (operation != "") {
+		num2 = label
+		operations()
+	}
+	num1 = label;
+	operation = "+";
+	label = ""
+	
+}
+
+function minus()
+{
+	if (label === "")
+	{
+		label = ""
+		return
+	}
+	if (operation != "") {
+		num2 = label
+		operations()
+	}
+	num1 = label;
+	operation = "-";
+	label = ""
+	document.getElementById("btndot").disabled = false;
+}
+
+function multiplication()
+{
+	if (label === "")
+	{
+		label = ""
+		return
+	}
+	if (operation != "") {
+		num2 = label
+		operations()
+	}
+	num1 = label;
+	operation = "x";
+	label = ""
+	document.getElementById("btndot").disabled = false;
+}
+
+function division()
+{
+	if (label === "")
+	{
+		label = ""
+		return
+	}
+	if (operation != "") {
+		num2 = label
+		operations()
+	}
+	num1 = label;
+	operation = "/";
+	label = ""
+	document.getElementById("btndot").disabled = false;
+}
+
+function operations()
+{
+	if (operation === "+")
+	{
+		label = parseInt(label)
+		num1 = parseInt(num1)
+		num2 = parseInt(num2)
+		label = num1 + num2
+		label = String(label)
+		num1 = String(num2)
+		num2 = String(num2)
+
+		document.getElementById("calculation").value = label;
+
+	} else if (operation === "-") 
+	{
+		label = parseInt(label)
+		num1 = parseInt(num1)
+		num2 = parseInt(num2)
+		label = num1 - num2
+		label = String(label)
+		num1 = String(num2)
+		num2 = String(num2)
+		
+		document.getElementById("calculation").value = label;
+	} else if (operation === "x")
+	{
+		label = parseInt(label)
+		num1 = parseInt(num1)
+		num2 = parseInt(num2)
+		label = num1 * num2
+		label = String(label)
+		num1 = String(num2)
+		num2 = String(num2)
+		
+		document.getElementById("calculation").value = label;
+	} else if (operation === "")
+	{
+		document.getElementById("calculation").value = label;
+	} else if (operation === "/")
+	{
+		label = parseInt(label)
+		num1 = parseInt(num1)
+		num2 = parseInt(num2)
+		label = num1 / num2
+		label = String(label)
+		num1 = String(num2)
+		num2 = String(num2)
+		
+		document.getElementById("calculation").value = label;
+	}
+	operation = "";
+	num1 = "";
+	num2 = "";
+	document.getElementById("btndot").disabled = false;
+}
+
+function equationset()
+{
+	document.getElementById("txtanswer").value = "";
+	
+	if (document.getElementById("lblmathtype").innerHTML == "Algebra")
+	{
+		document.getElementById("lblquestion").innerHTML = algebra;
+	} else if (document.getElementById("lblmathtype").innerHTML == "Geometry") 
+	{
+		document.getElementById("lblquestion").innerHTML = geometry;
+	}
+		
+		
+}
+
+function calculationcheck()
+{
+	if (document.getElementById("lblmathtype").innerHTML == "Algebra") {
+		
+		if (parseInt(document.getElementById("txtanswer").value) == 24)
+		{
+			alert("correct! Going to Next Question");
+			document.getElementById("lblmathtype").innerHTML = "Geometry";
+			equationset();
+		} else {
+			alert("wrong answer, Try again");
+		}
+	} else if (document.getElementById("lblmathtype").innerHTML == "Geometry") {
+		if (parseInt(document.getElementById("txtanswer").value) == 6)
+		{
+			alert("Correct!");
+			document.getElementById("lblmathtype").innerHTML = "Geometry";
+			document.getElementById("txtanswer").disabled=true;
+			document.getElementById("btncalculationsubmit").disabled=true;
+		} else {
+			alert("wrong answer, Try again");
+		}
+	}
+}
+
+//Schedule
+function schedulerun()
+{
+	document.getElementById("lbltableclass1").innerHTML = document.getElementById("txtclass1").value;
+	document.getElementById("lbltableclass2").innerHTML = document.getElementById("txtclass2").value;
+	document.getElementById("lbltableclass3").innerHTML = document.getElementById("txtclass3").value;
+	document.getElementById("lbltableclass4").innerHTML = document.getElementById("txtclass4").value;
+	document.getElementById("lbltableclass5").innerHTML = document.getElementById("txtclass5").value;
+	document.getElementById("lbltableclass6").innerHTML = document.getElementById("txtclass6").value;
+	document.getElementById("lbltableclass7").innerHTML = document.getElementById("txtclass7").value;
+	document.getElementById("lbltableclass8").innerHTML = document.getElementById("txtclass8").value;
 }
